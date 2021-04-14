@@ -1,0 +1,22 @@
+﻿
+# ignore the settings folder and files for VSCode and PSS
+.vscode/*
+*.psproj
+*TempPoint*
+
+# Ignore staging info from Visual Studio
+library/Roles/.vs/*
+library/Roles/Roles/bin/*
+library/Roles/Roles/obj/*
+
+# ignore PowerShell Studio MetaData
+Roles/Roles.psproj
+Roles/Roles.psproj.bak
+Roles/Roles.psprojs
+Roles/Roles.psproj
+
+# ignore the TestResults
+TestResults/*
+
+# ignore the publishing Directory
+publish/*
