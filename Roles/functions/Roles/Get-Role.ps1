@@ -1,4 +1,23 @@
 ﻿function Get-Role {
+	<#
+		.SYNOPSIS
+			Get a list of existing roles.
+		
+		.DESCRIPTION
+			Get a list of existing roles.
+		
+		.PARAMETER Name
+			The name of the roles to filter by.
+		
+		.PARAMETER System
+			The role system to work with.
+			Use "Select-RoleSystem" to pick a default role.
+		
+		.EXAMPLE
+			PS C:\> Get-Role
+	
+			Get a list of all existing roles in the currently selected role system.
+	#>
 	[CmdletBinding()]
 	param (
 		[PsfArgumentCompleter('Roles.Name')]

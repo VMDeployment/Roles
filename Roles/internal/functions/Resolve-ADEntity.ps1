@@ -17,7 +17,7 @@
 	.EXAMPLE
 		PS C:\> Resolve-ADEntity -Name max
 	
-		Resolves the user max as a SamAccountName 
+		Resolves the user max as a SamAccountName
 #>
 	[CmdletBinding()]
 	param (

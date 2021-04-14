@@ -30,8 +30,8 @@ $global:MayContainCommand = @{
 	"Write-Host"  = @()
 	"Write-Verbose" = @()
 	"Write-Warning" = @()
-	"Write-Error"  = @()
-	"Write-Output" = @()
+	"Write-Error"  = @('Add-RoleMember.ps1', 'ConvertFrom-Base64.ps1', 'ConvertTo-Base64.ps1')
+	"Write-Output" = @('Get-LdapObject.ps1')
 	"Write-Information" = @()
 	"Write-Debug" = @()
 }

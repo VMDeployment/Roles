@@ -14,3 +14,5 @@ Set-PSFTaskEngineCache -Module Roles -Name DomainCache -Lifetime 24h -Collector 
 		Get-LdapObject -SearchRoot $partitions -LdapFilter '(netBiosName=*)'
 	}
 }
+
+Set-MutexDefault -Access admins

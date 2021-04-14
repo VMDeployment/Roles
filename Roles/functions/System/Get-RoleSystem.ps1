@@ -1,4 +1,20 @@
 ﻿function Get-RoleSystem {
+<#
+	.SYNOPSIS
+		Get a list of available role systems.
+	
+	.DESCRIPTION
+		Get a list of available role systems.
+	
+	.PARAMETER Name
+		Name of the systems to filter by.
+		Defaults to '*'
+	
+	.EXAMPLE
+		PS C:\> Get-RoleSystem
+	
+		Get a list of all available role systems.
+#>
 	[CmdletBinding()]
 	param (
 		[PsfArgumentCompleter('Roles.System')]

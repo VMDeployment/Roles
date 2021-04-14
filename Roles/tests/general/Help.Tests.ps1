@@ -47,7 +47,12 @@ Param (
 if ($SkipTest) { return }
 . $ExceptionsFile
 
-$includedNames = (Get-ChildItem $CommandPath -Recurse -File | Where-Object Name -like "*.ps1").BaseName
+if (-not $CommandPath) { $CommandPath = "$global:testroot\..\functions", "$global:testroot\..\internal\functions"}
+$includedNames = $(
+	foreach ($path in $CommandPath) {
+		Get-ChildItem $path -Recurse -File | Where-Object Name -like "*.ps1"
+	}
+).BaseName
 $commandTypes = @('Cmdlet', 'Function')
 if ($PSVersionTable.PSEdition -eq 'Desktop' ) { $commandTypes += 'Workflow' }
 $commands = Get-Command -Module (Get-Module $ModuleName) -CommandType $commandTypes | Where-Object Name -In $includedNames
