@@ -1,31 +1,87 @@
-﻿# Description
+﻿# Roles
 
-Insert a useful description for the Roles project here.
+A powershell module allowing to implement small roles modells.
+This allows building and consuming a local permission model.
 
-Remember, it's the first thing a visitor will see.
+> This has been designed for use in JEA.
+> In opposite to reconfiguring endpoints for permissions, roles allow dynamically assigning permissions without interrupting existing sessions.
 
-# Project Setup Instructions
-## Working with the layout
+## Installation
 
-- Don't touch the psm1 file
-- Place functions you export in `functions/` (can have subfolders)
-- Place private/internal functions invisible to the user in `internal/functions` (can have subfolders)
-- Don't add code directly to the `postimport.ps1` or `preimport.ps1`.
-  Those files are designed to import other files only.
-- When adding files & folders, make sure they are covered by either `postimport.ps1` or `preimport.ps1`.
-  This adds them to both the import and the build sequence.
+The module has been published to the PowerShell Gallery. To install it, run:
 
-## Setting up CI/CD
+```powershell
+Install-Module Roles
+```
 
-> To create a PR validation pipeline, set up tasks like this:
+## Prerequisites
 
-- Install Prerequisites (PowerShell Task; VSTS-Prerequisites.ps1)
-- Validate (PowerShell Task; VSTS-Validate.ps1)
-- Publish Test Results (Publish Test Results; NUnit format; Run no matter what)
++ PowerShell 5.1 or later
++ Windows
 
-> To create a build/publish pipeline, set up tasks like this:
+## Use
 
-- Install Prerequisites (PowerShell Task; VSTS-Prerequisites.ps1)
-- Validate (PowerShell Task; VSTS-Validate.ps1)
-- Build (PowerShell Task; VSTS-Build.ps1)
-- Publish Test Results (Publish Test Results; NUnit format; Run no matter what)
+Using this module consists of two phases:
+
++ Setting up a system of roles and role memberships
++ Querying against that system
+
+### Setting up a simple role system
+
+Setting up and configuring the role system usually requires running PowerShell "As Administrator", as the role data is persisted under ProgramData.
+
+> Creating the role system
+
+```powershell
+# Set up the new system
+New-RoleSystem -Name 'Bartender'
+```
+
+> Defining Roles and assigning membership
+
+```powershell
+# Make the newly created system the default system for this session
+Select-RoleSystem -Name 'Bartender'
+
+# Add content to the system
+New-Role -Name Admins -Description 'Primary Bar Administrators'
+Add-RoleMember -Role Admins -ADMember 'Domain Admins'
+
+New-Role -Name Barkeepers -Description 'Barkeepers, can modify stock in bar section'
+Add-RoleMember -Role Barkeepers -RoleMember Admins
+Add-RoleMember -Role Barkeepers -ADMember 'r-Bar-Barkeepers'
+
+New-Role -Name Storage -Description 'Storage access, can modify stock in the storage section'
+Add-RoleMember -Role Storage -RoleMember Admins
+Add-RoleMember -Role Storage -ADMember 'r-Bar-Storage'
+```
+
+### Querying membership
+
+To test for membership, after the roles have been defined is simple enough.
+
+First, we need to select the default role system if not yet done in the current PowerShell session:
+
+```powershell
+# Make the newly created system the default system for this session
+Select-RoleSystem -Name 'Bartender'
+```
+
+Then, all we need to do the test is run `Test-RoleMembership`:
+
+```powershell
+# Returns $true if current user is in Role Barkeepers
+Test-RoleMembership -Role Barkeepers
+```
+
+It will check the current user against the role membership definition.
+
+> If executed in a remoting session, such as JEA, it will check against the user connected to that session, not the local account!
+> This means even if you run under a gMSA or a local virtual admin account, you can still grant and validate role membership against the actual user.
+
+## Dependencies
+
+This module uses as dependency:
+
++ [PSFramework](https://psframework.org)
++ [Mutex](https://github.com/FriedrichWeinmann/Mutex)
