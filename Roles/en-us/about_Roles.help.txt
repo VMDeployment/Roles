@@ -1,0 +1,11 @@
+﻿TOPIC
+	about_Roles
+	
+SHORT DESCRIPTION
+	Explains how to use the Roles powershell module
+	
+LONG DESCRIPTION
+	<Insert Content here>
+
+KEYWORDS
+	Roles

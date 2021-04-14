@@ -1,0 +1,21 @@
+﻿<ProjectState>
+  <Version>1.0</Version>
+  <FileID>658b561a-dca6-42ae-8340-e927426035de</FileID>
+  <OpenFolders>
+    <Folder>Roles</Folder>
+    <Folder>Roles\functions</Folder>
+    <Folder>Roles\internal</Folder>
+    <Folder>Roles\internal\functions</Folder>
+    <Folder>Roles\internal\scripts</Folder>
+    <Folder>Roles\tests\general</Folder>
+    <Folder>Roles\functions\RoleMember</Folder>
+    <Folder>Roles\functions\Roles</Folder>
+    <Folder>Roles\functions\System</Folder>
+  </OpenFolders>
+  <OpenFiles>
+    <File>Roles\internal\scripts\variables.ps1</File>
+    <File>Roles\functions\System\New-RoleSystem.ps1</File>
+    <File>Roles\functions\System\Get-RoleSystem.ps1</File>
+    <File>Roles\internal\scripts\initialize.ps1</File>
+  </OpenFiles>
+</ProjectState>
