@@ -72,7 +72,7 @@
 			if ($Name -like "*\*") {
 				$domain, $user = $Name -split '\\'
 				$result.Username = $user
-				$result.TypeNames = 'NT'
+				$result.Type = 'NT'
 				$result.Domain = $domain
 				return $result
 			}
