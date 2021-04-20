@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## ???
+
++ Fix: Add-RoleMember - bad string for the error when adding an unknown role
+
 ## 1.0.1 (2021-04-19)
 
 + Fix: Identity resolution - fails to resolve NT account properly: "Exception setting "TypeNames": "The property 'TypeNames' cannot be found on this object."

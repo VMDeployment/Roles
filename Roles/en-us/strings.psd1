@@ -4,7 +4,7 @@
 	'Add-RoleMember.Adding.ADEntity'	    = 'Adding Principal {1} ({2}) to {0}' # $Role, $resolvedIdentity.SamAccountName, $resolvedIdentity.SID
 	'Add-RoleMember.Adding.Role'		    = 'Adding role {1} to role {0}' # $Role, $roleName
 	'Add-RoleMember.ADIdentity.Unknown'	    = 'Unable to identify AD principal: {0}' # $adEntity
-	'Add-RoleMember.Unknown.MemberRole'	    = 'Unable to role-member to {0}. The role {2} was not found in the role system {}' # $Role, $System, $roleName
+	'Add-RoleMember.Unknown.MemberRole'	    = 'Unable to role-member to {0}. The role {2} was not found in the role system {1}' # $Role, $System, $roleName
 	
 	'Get-LdapObject.SearchError'		    = 'Error executing LDAP query' # 
 	'Get-LdapObject.Searchfilter'		    = 'Resolved LDAP filter: {0}' # $LdapFilter
