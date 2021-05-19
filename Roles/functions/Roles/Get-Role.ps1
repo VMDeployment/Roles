@@ -43,7 +43,7 @@
 			if ($systemName -notlike $Name) { continue }
 			
 			try {
-				Invoke-MutexCommand -Name "PS.Roles.$System.$Name" -ErrorMessage "Failed to acquire file access lock" -ScriptBlock {
+				Invoke-MutexCommand -Name "PS.Roles.$System.$systemName" -ErrorMessage "Failed to acquire file access lock" -ScriptBlock {
 					Get-Content -Path $file.FullName -Encoding UTF8 -ErrorAction Stop | ConvertFrom-Json -ErrorAction Stop
 				}
 			}

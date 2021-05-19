@@ -3,7 +3,7 @@
 	RootModule = 'Roles.psm1'
 	
 	# Version number of this module.
-	ModuleVersion = '1.0.1'
+	ModuleVersion = '1.0.3'
 	
 	# ID used to uniquely identify this module
 	GUID = '76fa214e-1d13-4b34-b2a9-bf556f36eb43'
@@ -27,7 +27,7 @@
 	# this module
 	RequiredModules = @(
 		@{ ModuleName = 'PSFramework'; ModuleVersion = '1.6.198' }
-		@{ ModuleName = 'Mutex'; ModuleVersion = '1.1.6' }
+		@{ ModuleName = 'Mutex'; ModuleVersion = '1.1.8' }
 	)
 	
 	# Assemblies that must be loaded prior to importing this module
