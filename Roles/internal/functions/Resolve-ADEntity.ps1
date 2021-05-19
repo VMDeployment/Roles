@@ -84,6 +84,7 @@
 		}
 		
 		function New-Entity {
+            [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseShouldProcessForStateChangingFunctions', '')]
 			[CmdletBinding()]
 			param (
 				[string]

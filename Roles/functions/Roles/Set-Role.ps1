@@ -29,6 +29,7 @@
 	
 		Updates the description of the VMOperators role
 #>
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '')]
 	[CmdletBinding(SupportsShouldProcess = $true)]
 	param (
 		[Parameter(Mandatory = $true, ValueFromPipelineByPropertyName = $true)]
