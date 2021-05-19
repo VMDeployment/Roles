@@ -103,6 +103,7 @@
 	begin {
 		#region Utility Functions
 		function Get-PropertyName {
+            [OutputType([string])]
 			[CmdletBinding()]
 			param (
 				[string]

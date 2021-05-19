@@ -15,6 +15,7 @@
 	
 		Convert the string stored in $role to base 64.
 #>
+    [OutputType([string])]
 	[CmdletBinding()]
 	param (
 		[Parameter(ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true)]

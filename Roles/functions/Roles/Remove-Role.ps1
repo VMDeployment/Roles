@@ -56,7 +56,7 @@
 			Invoke-PSFProtectedCommand -ActionString 'Remove-Role.Removing' -ActionStringValues $nameEntry, $System -ScriptBlock {
 				Invoke-MutexCommand -Name "PS.Roles.$System.$nameEntry" -ErrorMessage "Failed to acquire file access lock" -ScriptBlock {
 					Remove-Item -Path $systemPath -Force -ErrorAction Stop
-				}
+				} -ErrorAction Stop
 			} -Target $nameEntry -EnableException $true -PSCmdlet $PSCmdlet
 		}
 	}
